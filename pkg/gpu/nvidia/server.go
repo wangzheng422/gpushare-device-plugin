@@ -47,10 +47,16 @@ func NewNvidiaDevicePlugin(mps, healthCheck bool) (*NvidiaDevicePlugin, error) {
 	if err != nil {
 		return nil, err
 	}
+	// wzh
+	log.Infof("patchGPUCount: finished")
+
 	disableCGPUIsolation, err := disableCGPUIsolationOrNot()
 	if err != nil {
 		return nil, err
 	}
+	// wzh
+	log.Infof("disableCGPUIsolationOrNot: finished")
+
 	return &NvidiaDevicePlugin{
 		devs:                 devs,
 		realDevNames:         devList,
